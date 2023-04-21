@@ -24,10 +24,9 @@ class Limpieza(BaseEstimator, TransformerMixin):
 
    
 
-    def remove_words(self,text):
+    def remove_words(self,text, en_us, es_es):
         
-        en_us = enchant.Dict("en_US")
-        es_es = enchant.Dict("es_ES")
+        
         palabras_no_existe = []
         for word in text.split(" "):
             if en_us.check(word)== False and es_es.check(word) == False:
@@ -57,8 +56,10 @@ class Limpieza(BaseEstimator, TransformerMixin):
         movies_df['review_es'] = movies_df['review_es'].apply(lambda x: " ".join([word for word in x.split() if word not in stop_words]))
         movies_df['review_es'] = movies_df['review_es'].apply(lambda x: " ".join([word for word in x.split() if word not in stop_words_e]))
 
+        en_us = enchant.Dict("en_US")
+        es_es = enchant.Dict("es_ES")
         #Eliminamos las palabras que no pertenecen al Español ni Inglés
-        #movies_df['review_es'] = movies_df['review_es'].apply(lambda x: self.remove_words(x))
+        movies_df['review_es'] = movies_df['review_es'].apply(lambda x: self.remove_words(x, en_us, es_es))
         
 
         #Remover las palabras con poca frecuencia de apariciones

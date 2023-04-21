@@ -7,3 +7,4 @@
 3. Abra la terminal y active el entorno virtual escribiendo lo siguiente: *[nombre entorno virtual]\Scripts\activate.bat*
 4. Una vez activado el entorno virtual ejecute lo siguiente en la terminal: *python -m pip install -r requirements.txt*.
 5. Escriba lo siguiente: *flask run*
+6. Abra el navegador y pegue la url que aparece en terminal
