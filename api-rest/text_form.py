@@ -5,6 +5,6 @@ from wtforms import validators
 
 class Text_form(Form):
     texto = TextAreaField('Escribe tu opinión...',[ validators.InputRequired(message='Cuál es tu opinión?!.'),
-    validators.length(min=50, max=900, message='No exceda el número de digitos !.')])
+    validators.length(min=50, max=900, message='Ingresa mínimo 50 caracteres y máximo 900 caracteres.')])
 
    
