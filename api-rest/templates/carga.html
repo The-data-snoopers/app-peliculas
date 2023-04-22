@@ -1,0 +1,59 @@
+{%extends "base/base.html"%}
+{%block title %} Escribe comentarios {% endblock %}
+
+
+{% include "base/layout.html"%}
+{%block content%}
+
+  <div class="cuerpo">
+    <h3 style="color: #2575fc;  margin-top: 30px; text-align: center;">
+      Bienvienido al software especializado que te ayuda darte un valance sobre la percepción de una pelicula en los
+      clientes.
+    </h3>
+
+    {% from "_macro.html" import render_form %}
+
+
+    <div class="container">
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-sm-6 col-md-8">
+          <div class="col-sm-6 col-md-8">
+            <form action="/predecir" method="POST" class="form-horizontal" novalidate>
+
+              <div class="form-group">
+                {{render_form(formulario.texto, class='form-control', rows=10, placeholder='Escribe...')}}
+              </div>
+
+              <div class="form-group">
+                <div class="p-2">
+                  <button type="submit" name="submit" value="Elegir" class="btn btn-primary">Enviar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+        <div class="col-6 col-md-4">
+
+          <div style="text-align: center;
+                      width: 400px;
+                      margin: 0 auto;
+                      margin-top: 40px;
+                      color: #2575fc;
+                      font-style: oblique;">
+            <h1>El análisis dice que el cliente: </h1>
+            <p style="color: #577cbb;
+                      font-size: 50px;
+                      font-style: inherit;"> {{result}}</p>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  {%endblock%}

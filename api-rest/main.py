@@ -18,12 +18,20 @@ app = Flask(__name__)
 modelo = Model_prediction()
 
 
+
+@app.route("/inicio", methods=['GET'])
+def home():
+
+    return render_template('index.html')
+
+
+
 @app.route("/predecir", methods=['GET', 'POST'])
-def crear_prediccion():
+def crear_prediccion_comentario():
 
     formulario = Text_form(request.form)
     if request.method == 'GET':
-        return render_template('index.html', formulario=formulario)
+        return render_template('carga.html', formulario=formulario)
         
     if request.method == 'POST' and formulario.validate():
         texto = formulario.texto.data
@@ -38,16 +46,46 @@ def crear_prediccion():
         #result = llamar_modelo(df)
         print("result: ", result[0])
         resultado_modelo = str(result[0])
-        return render_template('index.html', formulario=formulario, result=resultado_modelo)
+        return render_template('carga.html', formulario=formulario, result=resultado_modelo)
 
     else:
       
-        return render_template('index.html', formulario=formulario)
+        return render_template('carga.html', formulario=formulario)
     
+
+
+@app.route("/prediccion-masiva", methods=['GET', 'POST'])
+def crear_prediccion_masiva():
+
+    formulario = Text_form(request.form)
+    if request.method == 'GET':
+        return render_template('carga_masiva.html', formulario=formulario)
+        
+    if request.method == 'POST' and formulario.validate():
+        texto = formulario.texto.data
+        print("texto: ", texto)
+       
+
+        texto = Comentario( comentario=texto)
+
+        df = pd.DataFrame(texto.dict(), columns=texto.dict().keys(), index=[0])
+    
+        result = modelo.make_predictions(df)
+        #result = llamar_modelo(df)
+        print("result: ", result[0])
+        resultado_modelo = str(result[0])
+        return render_template('carga_masiva.html', formulario=formulario, result=resultado_modelo)
+
+    else:
+      
+        return render_template('carga_masiva.html', formulario=formulario)
+    
+
+
 
 @app.route('/')
 def principal():
-    return redirect(url_for('prediccion.crear_prediccion'))
+    return redirect(url_for('home'))
 
 
 
