@@ -1,0 +1,35 @@
+{%extends "base/base.html"%}
+{%block title %} Escribe comentarios {% endblock %}
+
+
+{% include "base/layout.html"%}
+{%block content%}
+
+<div class="container">
+  <div class="row">
+    <div class="col" style="padding: 100px 100px 100px 100px; ">
+      <div class="card" style="width: 18rem; ">
+        <div class="card-body">
+          <p class="card-text">
+            
+            <a class="nav-link active" aria-current="page" href="{{ url_for('crear_prediccion_comentario') }}">
+              Ingresa un comentario para que los análice el software</a>
+            
+            </p>
+        </div>
+      </div>
+    </div>
+    <div class="col" style="padding: 100px 100px 100px 100px;">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <p class="card-text">
+            <a class="nav-link active" aria-current="page" href="/prediccion-masiva">
+              Carga archivos con comentarios</a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {%endblock%}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %} {%endblock%}</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--<link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">-->
+</head>
+
+<body>
+
+  <div class="cuerpo">
+    {% block content%}
+  {%endblock%}
+  </div>
+  
+
+
+  
+  <footer style="background-color: #2575fc;
+  width: 100%;
+  height: 100px; color: white;">
+    <div class="container" style="padding-top: 30px;">
+      <div class="row">
+        <div class="col" style="text-align: center;"> &copy;
+          2023 Data snoopers, Inc. All rights reserved.
+        </div>
+        <div class="col order-2" style="text-align: center;">
+          <p>Correo: datasnoopers@gmail.com</p>
+
+          <div class="row">
+            <div class="col" style="text-align: center;">
+              Comunicate con nosotros <br>
+              317 535 2622
+            </div>
+            <div class="col order-2" style="text-align: center;">
+              Redes sociales <br>
+              Twitter - Linkedin
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

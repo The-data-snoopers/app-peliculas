@@ -7,8 +7,7 @@
 
   <div class="cuerpo">
     <h3 style="color: #2575fc;  margin-top: 30px; text-align: center;">
-      Bienvienido al software especializado que te ayuda darte un valance sobre la percepción de una pelicula en los
-      clientes.
+      Aquí puedes escribir un comentario para que el sistema lo analice
     </h3>
 
     {% from "_macro.html" import render_form %}
@@ -19,7 +18,9 @@
         <div class="col-sm-6 col-md-8">
           <div class="col-sm-6 col-md-8">
             <form action="/predecir" method="POST" class="form-horizontal" novalidate>
-
+              <div class="form-group">
+                {{render_form(formulario.nombre, class='form-control', rows=10, placeholder='Escribe...')}}
+              </div>
               <div class="form-group">
                 {{render_form(formulario.texto, class='form-control', rows=10, placeholder='Escribe...')}}
               </div>

@@ -1,35 +1,19 @@
-{%extends "base/base.html"%}
-{%block title %} Escribe comentarios {% endblock %}
+{%extends "base2/base.html"%}
+{%block title %} Iniciar sesión {% endblock %}
 
 
-{% include "base/layout.html"%}
+{% include "base2/layout.html"%}
 {%block content%}
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <p class="card-text">
-            
-            <a class="nav-link active" aria-current="page" href="{{ url_for('crear_prediccion_comentario') }}">
-              Ingresa un comentario y conoce a los clientes</a>
-            
-            </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <p class="card-text">
-            <a class="nav-link active" aria-current="page" href="/prediccion-masiva">
-              Carga archivos con comentarios</a>
-            </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-  {%endblock%}
+<h3 style="color: #2575fc;  margin-top: 30px; text-align: center; font-weight: bold;">
+  Bienvenido
+  </h3>
+
+  <div class="d-grid gap-2 col-6 mx-auto">
+   
+    <button class="btn btn-primary" type="button"> <a class="nav-link" href="/registrar" style="color: white;">Registrarme</a></button>
+    <button class="btn btn-primary" type="button"><a class="nav-link" href="/auth" style="color: white;">Iniciar sesión</a></button>
+  </div>
+
+{%endblock%}
