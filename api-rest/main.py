@@ -26,16 +26,10 @@ def crear_prediccion():
         return render_template('index.html', formulario=formulario)
         
     if request.method == 'POST' and formulario.validate():
-        texto = formulario.texto.data
-        print("texto: ", texto)
-       
-
-        texto = Comentario( comentario=texto)
-
-        df = pd.DataFrame(texto.dict(), columns=texto.dict().keys(), index=[0])
+        archivo = request.files['archivo']
+        df = pd.read_csv(archivo)
     
         result = modelo.make_predictions(df)
-        #result = llamar_modelo(df)
         print("result: ", result[0])
         resultado_modelo = str(result[0])
         return render_template('index.html', formulario=formulario, result=resultado_modelo)
@@ -53,6 +47,3 @@ def principal():
 
 if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1', port=5000)
-
-
-

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "requirements": "^1.4.1",
+    "sklearn": "^0.3.0"
+  }
+}
